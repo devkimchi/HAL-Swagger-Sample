@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HalSwaggerSample.HalApiApp"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HalSwaggerSample.ApiApp", "HalSwaggerSample.ApiApp\HalSwaggerSample.ApiApp.csproj", "{3C27A5F7-2BF8-4F7D-87EE-1C361D9312B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HalSwaggerSample.WebApp", "HalSwaggerSample.WebApp\HalSwaggerSample.WebApp.csproj", "{6FE8247E-C9D2-4A41-A71E-0EC91CACF2AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3C27A5F7-2BF8-4F7D-87EE-1C361D9312B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C27A5F7-2BF8-4F7D-87EE-1C361D9312B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C27A5F7-2BF8-4F7D-87EE-1C361D9312B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FE8247E-C9D2-4A41-A71E-0EC91CACF2AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FE8247E-C9D2-4A41-A71E-0EC91CACF2AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FE8247E-C9D2-4A41-A71E-0EC91CACF2AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FE8247E-C9D2-4A41-A71E-0EC91CACF2AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

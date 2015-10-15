@@ -35,9 +35,9 @@ namespace HalSwaggerSample.ApiApp
             }
 
             var config = new HttpConfiguration()
-            {
-                DependencyResolver = new AutofacWebApiDependencyResolver(container),
-            };
+                         {
+                             DependencyResolver = new AutofacWebApiDependencyResolver(container),
+                         };
 
             // Routes
             config.MapHttpAttributeRoutes();
