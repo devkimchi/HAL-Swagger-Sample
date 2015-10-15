@@ -132,9 +132,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\EntryController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Filters\SwaggerHalSchemaFilter.cs" />
-    <Compile Include="Filters\SwaggerOperationAttribute.cs" />
-    <Compile Include="Filters\SwaggerOperationFilter.cs" />
     <Compile Include="Helpers\FilterHelper.cs" />
     <Compile Include="Helpers\ProductHelper.cs" />
     <Compile Include="Models\Entry.cs" />

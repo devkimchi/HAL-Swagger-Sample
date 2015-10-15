@@ -1,0 +1,260 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "HalSwaggerSample.HalApiApp"
+  },
+  "host": "localhost:53144",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Entry"
+        ],
+        "summary": "Gets the entry.",
+        "operationId": "Entry_GetEntry",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/hal+json",
+          "application/hal+xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Entry"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/products": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Gets the product collection.",
+        "operationId": "Product_GetProducts",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/hal+json",
+          "application/hal+xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ProductCollection"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/products/{productId}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Gets the product.",
+        "operationId": "Product_GetProduct",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/hal+json",
+          "application/hal+xml"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product Id.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "Entry": {
+      "description": "This represents the model entity for entry.",
+      "type": "object",
+      "properties": {
+        "_links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "_embedded": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EmbeddedResource"
+          }
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "Curie": {
+          "$ref": "#/definitions/CuriesLink",
+          "readOnly": true
+        },
+        "Rel": {
+          "type": "string"
+        },
+        "Href": {
+          "type": "string"
+        },
+        "Title": {
+          "type": "string"
+        },
+        "Type": {
+          "type": "string"
+        },
+        "Deprecation": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Profile": {
+          "type": "string"
+        },
+        "HrefLang": {
+          "type": "string"
+        },
+        "IsTemplated": {
+          "type": "boolean",
+          "readOnly": true
+        }
+      }
+    },
+    "EmbeddedResource": {
+      "type": "object",
+      "properties": {
+        "IsSourceAnArray": {
+          "type": "boolean"
+        },
+        "Resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IResource"
+          },
+          "readOnly": true
+        }
+      }
+    },
+    "CuriesLink": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string",
+          "readOnly": true
+        },
+        "Href": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "IResource": {
+      "type": "object",
+      "properties": {
+        "_links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        }
+      }
+    },
+    "ProductCollection": {
+      "description": "This represents the collection entity for products.",
+      "type": "object",
+      "properties": {
+        "ResourceList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Product"
+          }
+        },
+        "_links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "_embedded": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EmbeddedResource"
+          }
+        }
+      }
+    },
+    "Product": {
+      "description": "This represents the entity for product.",
+      "type": "object",
+      "properties": {
+        "ProductId": {
+          "format": "int32",
+          "description": "Gets or sets the product Id.",
+          "type": "integer"
+        },
+        "Name": {
+          "description": "Gets or sets the product name.",
+          "type": "string"
+        },
+        "ProductType": {
+          "description": "Gets or sets the product type.",
+          "enum": [
+            "Unknown",
+            "Food",
+            "Stationery"
+          ],
+          "type": "string"
+        },
+        "_links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Link"
+          }
+        },
+        "_embedded": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EmbeddedResource"
+          }
+        }
+      }
+    }
+  }
+}

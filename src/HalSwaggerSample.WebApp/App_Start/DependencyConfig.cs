@@ -3,6 +3,8 @@
 using Autofac;
 using Autofac.Integration.Mvc;
 
+using HalSwaggerSample.WebApp.Proxies;
+
 namespace HalSwaggerSample.WebApp
 {
     /// <summary>
@@ -18,15 +20,26 @@ namespace HalSwaggerSample.WebApp
         {
             var builder = new ContainerBuilder();
 
+            RegisterProxies(builder);
             RegisterControllers(builder);
 
             var container = builder.Build();
             return container;
         }
 
+        private static void RegisterProxies(ContainerBuilder builder)
+        {
+            builder.RegisterType<HalSwaggerSampleHalApiApp>()
+                   .As<IHalSwaggerSampleHalApiApp>()
+                   .PropertiesAutowired()
+                   .InstancePerLifetimeScope();
+        }
+
         private static void RegisterControllers(ContainerBuilder builder)
         {
-            builder.RegisterControllers(Assembly.GetExecutingAssembly()).PropertiesAutowired().InstancePerLifetimeScope();
+            builder.RegisterControllers(Assembly.GetExecutingAssembly())
+                   .PropertiesAutowired()
+                   .InstancePerLifetimeScope();
         }
     }
 }

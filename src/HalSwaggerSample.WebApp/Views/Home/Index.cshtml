@@ -1,7 +1,22 @@
-﻿
+﻿@model HalSwaggerSample.WebApp.Proxies.Models.Product
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Product</h2>
 
+<ul>
+    <li>ProductId: @Model.ProductId</li>
+    <li>Name: @Model.Name</li>
+    <li>ProductType: @Model.ProductType</li>
+
+    <li>
+        Links:
+        <ul>
+            @foreach (var link in Model.LowLinelinks)
+            {
+                <li>@link.Rel : @link.Href</li>
+            }
+        </ul>
+    </li>
+</ul>
